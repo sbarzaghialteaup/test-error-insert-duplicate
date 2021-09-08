@@ -5,4 +5,5 @@ service CatalogService {
     entity Books as projection on my.Books;
 
     action addBooks(titles : many String) returns String;
+    action workaround(titles : many String) returns String;
 }

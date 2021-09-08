@@ -37,3 +37,9 @@ When you try to insert more books that cause duplicate key you get following err
 - Run step 1, insert titles "title1" and "title2",  -> ok
 - Run step 2, insert only title "title1" again, duplicate key, -> ok
 - Run step 3, insert both titles "title1" and "title2" again,  -> message error and cds stops responding
+
+# Workaround
+
+- Run step 4, call the action `workaround` with the suggested workaround:
+
+[workaround](https://answers.sap.com/questions/13474883/cap-error-sqlite-misuse-statement-is-already-final.html)

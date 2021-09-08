@@ -31,3 +31,14 @@ Content-Type: application/json
         "title2"
     ]
 }
+
+### 4° Workaround
+POST http://localhost:4004/catalog/workaround  HTTP/1.1
+Content-Type: application/json
+
+{
+    "titles": [
+        "title1",
+        "title2"
+    ]
+}
