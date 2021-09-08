@@ -1,11 +1,13 @@
+const cds = require("@sap/cds");
+
 class CatalogService extends cds.ApplicationService {
   async init() {
-    this.on("generateBooks", this.generateBooks);
+    this.on("addBooks", this.addBooks);
 
     await super.init();
   }
 
-  async generateBooks(req) {
+  async addBooks(req) {
     const tx = cds.tx(req);
 
     const newBooks = req.data.titles.map((title) => {
@@ -17,8 +19,9 @@ class CatalogService extends cds.ApplicationService {
     console.log(newBooks);
 
     try {
-      await tx.create(cds.entities.Books).entries(newBooks);
+      await INSERT.into(cds.entities.Books).entries(newBooks);
     } catch (error) {
+      console.error(error);
       req.error(400, `Error during generation `);
     }
     req.reply("done");

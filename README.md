@@ -1,25 +1,21 @@
-# Getting Started
+# Intro
 
-Welcome to your new project.
+Entity `Books` with unique key `title`.
 
-It contains these folders and files, following our recommended project layout:
+Action `addBooks` with input many books, insert all of them
 
-File or Folder | Purpose
----------|----------
-`app/` | content for UI frontends goes here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`package.json` | project metadata and configuration
-`readme.md` | this getting started guide
+File `test.http` with 3 steps
 
 
-## Next Steps
+# Problem:
+When you try to insert more books that cause duplicate key you get following error and cds stops responding:
+```
+[ERROR] SQLITE_MISUSE: Statement is already finalized
+```
 
-- Open a new terminal and run `cds watch` 
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start adding content, for example, a [db/schema.cds](db/schema.cds).
+# How to reproduce:
 
-
-## Learn More
-
-Learn more at https://cap.cloud.sap/docs/get-started/.
+- `cds watch`
+- Run step 1, insert titles "title1" and "title2",  -> ok
+- Run step 2, insert title "title1" again, duplicate key, -> ok
+- Run step 3, insert titles "title1" and "title2" again,  -> message error and cds stops responding

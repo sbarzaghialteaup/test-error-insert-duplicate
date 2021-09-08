@@ -1,16 +1,17 @@
 
 ### 1° Ok
-POST http://localhost:4004/catalog/generateBooks  HTTP/1.1
+POST http://localhost:4004/catalog/addBooks  HTTP/1.1
 Content-Type: application/json
 
 {
     "titles": [
-        "title1"
+        "title1",
+        "title2",
     ]
 }
 
 ### 2° Insert only one duplicate key, ok
-POST http://localhost:4004/catalog/generateBooks  HTTP/1.1
+POST http://localhost:4004/catalog/addBooks  HTTP/1.1
 Content-Type: application/json
 
 {
@@ -21,7 +22,7 @@ Content-Type: application/json
 
 ### 3° Insert two times the same duplicate key:
 ### [ERROR] SQLITE_MISUSE: Statement is already finalized
-POST http://localhost:4004/catalog/generateBooks  HTTP/1.1
+POST http://localhost:4004/catalog/addBooks  HTTP/1.1
 Content-Type: application/json
 
 {

@@ -4,5 +4,5 @@ service CatalogService {
     @readonly
     entity Books as projection on my.Books;
 
-    action generateBooks(titles : many String) returns String;
+    action addBooks(titles : many String) returns String;
 }
